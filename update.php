@@ -2,7 +2,7 @@
 //passthru("git pull;git merge;"););
 echo '<pre>';
 $cd = __DIR__;
-$cmd = "cd  $cd;git pull -v 2>&1; echo ".'$USER;';
+$cmd = 'echo $USER;'."cd  $cd;git pull -v 2>&1;"
 $last_line = shell_exec ($cmd);
 
 // Printing additional info
