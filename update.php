@@ -2,7 +2,7 @@
 //passthru("git pull;git merge;"););
 echo '<pre>';
 
-$last_line = system('git pull -verbose;', $retval);
+$last_line = passthru ('git pull -v /var/www/html/;', $retval);
 
 // Printing additional info
 echo '
