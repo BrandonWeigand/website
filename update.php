@@ -2,7 +2,7 @@
 //passthru("git pull;git merge;"););
 echo '<pre>';
 $cd = __DIR__;
-$cmd = "cd  $cd;git pull -v;";
+$cmd = "cd  $cd;git pull -v 2>&1;";
 $last_line = passthru ($cmd, $retval);
 
 // Printing additional info
@@ -14,4 +14,4 @@ echo '
 '<hr>CMD: '.$cmd;
 ?>
 <br> 
-final test
+final test2
