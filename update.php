@@ -14,3 +14,4 @@ echo '
 '<hr>CMD: '.$cmd;
 ?>
 <br> 
+final test
