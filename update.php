@@ -3,7 +3,7 @@
 echo '<pre>';
 $cd = __DIR__;
 $cmd = 'echo $USER;'."cd  $cd;git pull -v 2>&1;";
-$last_line = shell_exec ($cmd);
+$last_line = exec ($cmd,$rtn,$tmp);
 
 // Printing additional info
 echo '
@@ -11,6 +11,8 @@ echo '
 <hr />Last line of the output: ' . $last_line . 
 '<hr>Path: '.$cd.
 '<hr>CMD: '.$cmd;
+var_dump(json_encode(array(
+    "tmp"=>$tmp,
+    "return"=>$rtn
+)));
 ?>
-<br> 
-final test2
