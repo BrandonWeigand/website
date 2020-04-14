@@ -2,7 +2,7 @@
 //passthru("git pull;git merge;"););
 echo '<pre>';
 
-$last_line = system('git pull -v;ls;', $retval);
+$last_line = system('git pull -v;top;', $retval);
 
 // Printing additional info
 echo '
