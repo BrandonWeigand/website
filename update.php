@@ -10,4 +10,5 @@ echo '
 <hr />Last line of the output: ' . $last_line . '
 <hr />Return value: ' . $retval;
 ?>
+<br>
 auto test
