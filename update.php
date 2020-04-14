@@ -9,7 +9,6 @@ $last_line = passthru ("git pull -v $cd;", $retval);
 echo '
 </pre>
 <hr />Last line of the output: ' . $last_line . '
-<hr />Return value: ' . $retval;
+<hr />Return value: ' . $retval.
+'<hr>Path: '.$cd;
 ?>
-<br>
-auto test
