@@ -13,4 +13,4 @@ echo '
 '<hr>Path: '.$cd.
 '<hr>CMD: '.$cmd;
 ?>
-<br> ----
+<br> 
