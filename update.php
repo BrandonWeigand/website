@@ -1,1 +1,1 @@
-<?php echo(shell_exec("git pull;git merge;"););?>
+<?php echo(passthru("git pull;git merge;"););?>
