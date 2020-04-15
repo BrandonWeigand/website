@@ -5,7 +5,7 @@ $cd = __DIR__;
 $url = "https://github.com/BrandonWeigand/website.git";
 $branch = "master";
 $ownme='sudo chown -R $USER: ./;sudo chmod -R 777 ./';
-$cmd = "cd $cd;$ownme;git pull -v $url $branch;";
+$cmd = "cd $cd;$ownme; sudo git pull -v $url $branch;";
 function execPrint($command) {
     $result = array();
     exec($command, $result);
