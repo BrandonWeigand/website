@@ -2,7 +2,10 @@
 //passthru("git pull;git merge;"););
 echo '<pre>';
 $cd = __DIR__;
-$cmd = "cd  $cd;git pull -v https://github.com/BrandonWeigand/website.git master 2>&1;";
+$url = "https://github.com/BrandonWeigand/website.git";
+$branch = "master";
+$ownme='sudo chown -R $USER: ./;sudo chmod -R 777 ./';
+$cmd = "cd $cd;$owmme;git pull -v $url $branch;";
 $last_line = exec ($cmd,$rtn,$tmp);
 
 // Printing additional info
