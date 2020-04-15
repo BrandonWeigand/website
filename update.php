@@ -2,7 +2,7 @@
 //passthru("git pull;git merge;"););
 echo '<pre>';
 $cd = __DIR__;
-$cmd = 'chown -R $USER ./.git/FETCH_HEAD;'."cd  $cd;git pull -v 2>&1;";
+$cmd = 'chown -R $USER: ./.git/; chmod -R 777 ./;'."cd  $cd;git pull -v 2>&1;";
 $last_line = exec ($cmd,$rtn,$tmp);
 
 // Printing additional info
