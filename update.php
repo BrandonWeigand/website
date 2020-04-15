@@ -2,7 +2,7 @@
 //passthru("git pull;git merge;"););
 echo '<pre>';
 $cd = __DIR__;
-$cmd = "cd  $cd;git pull -v master 2>&1;";
+$cmd = "cd  $cd;git pull -v https://github.com/BrandonWeigand/website.git master 2>&1;";
 $last_line = exec ($cmd,$rtn,$tmp);
 
 // Printing additional info
