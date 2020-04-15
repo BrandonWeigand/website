@@ -4,8 +4,13 @@ echo '<pre>';
 $cd = __DIR__;
 $url = "https://github.com/BrandonWeigand/website.git";
 $branch = "master";
-$ownme='sudo chown -R $USER: ./;sudo chmod -R 777 ./';
-$cmd = "cd $cd;$ownme; sudo git pull -v $url $branch;";
+$ownme="cd $cd".'sudo chown -R $USER: ./;sudo chmod -R 777 ./;';
+$gitcmd=array(
+    "pull"=>"sudo git pull -v $url $branch;",
+    "clone"=>"rm -rfv $cd;sudo git clone $url $cd;"
+);
+$cmd = "{$ownme}{$gitcmd[$_GET["git"]]}";
+$do =false;
 function execPrint($command) {
     $result = array();
     exec($command, $result);
@@ -13,5 +18,7 @@ function execPrint($command) {
         print($line . "\n");
     }
 }
-execPrint($cmd);
+if($do==true){
+    execPrint($cmd);
+}
 ?>
