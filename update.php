@@ -10,15 +10,17 @@ $gitcmd=array(
     "clone"=>"rm -rfv $cd;sudo git clone $url $cd;"
 );
 $cmd = "{$ownme}{$gitcmd[$_GET["git"]]}";
-$do = isset($_GET["git"])?true:false;
+$do = isset($_GET["git"]);
 function execPrint($command) {
+    $lines = array();
     $result = array();
     exec($command, $result);
     foreach ($result as $line) {
-        print($line . "\n");
+        array_push($lines,$line);
     }
+    return($lines);
 }
 if($do==true){
-    execPrint($cmd);
+    var_dump(execPrint($cmd));
 }
 ?>
