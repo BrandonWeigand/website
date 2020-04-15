@@ -2,7 +2,7 @@
 //passthru("git pull;git merge;"););
 echo '<pre>';
 $cd = __DIR__;
-$cmd = "cd  $cd/.git/;".'chown -R $USER: ./; chmod -R 777 ./;'."cd  $cd;git pull -v 2>&1;";
+$cmd = "cd  $cd;git pull -v 2>&1;";
 $last_line = exec ($cmd,$rtn,$tmp);
 
 // Printing additional info
@@ -16,3 +16,4 @@ var_dump(json_encode(array(
     "return"=>$rtn
 )));
 ?>
+I made a change
