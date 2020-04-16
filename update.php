@@ -8,9 +8,19 @@ $gitcmd=array(
     "clone"=>"rm -rfv $cd;sudo git clone $url $cd 2>&1;"
 );
 $cmd = "{$ownme}{$gitcmd[$_GET["git"]]}";
+
+function run($cmd){
+    $r = array();
+    $proc = popen($cmd, 'r');
+    while (!feof($proc)){
+        array_push($r,"[".date("i:s")."] ".fread($proc, 4096));
+    }
+    return($r);
+}
+
 if(isset($_GET["git"])){
-    $line="";
-    echo(passthru($cmd,$line));
-    echo($line);
-    echo("<br>".posix_getpwuid(posix_geteuid())['name']);}
+    $lines=array(posix_getpwuid(posix_geteuid())['name']));
+    array_merge($lines,run($cmd));
+    }
+    echo("<code>".json_encode($lines)."</code>");
 ?>
