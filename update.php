@@ -1,6 +1,4 @@
 <?php 
-//passthru("git pull;git merge;"););
-echo '<pre>';
 $cd = __DIR__;
 $url = "https://github.com/BrandonWeigand/website.git";
 $branch = "master";
@@ -10,7 +8,6 @@ $gitcmd=array(
     "clone"=>"rm -rfv $cd;sudo git clone $url $cd 2>&1;"
 );
 $cmd = "{$ownme}{$gitcmd[$_GET["git"]]}";
-if(isset($_GET["git"])){
-    exec($cmd);
-}
+if(isset($_GET["git"])){echo(exec($cmd));}
+echo("<br>".posix_getpwuid(posix_geteuid())['name']);
 ?>
