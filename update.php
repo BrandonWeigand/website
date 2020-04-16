@@ -22,5 +22,6 @@ if(isset($_GET["git"])){
     $lines=array(posix_getpwuid(posix_geteuid())['name']));
     array_merge($lines,run($cmd));
     }
-    echo("<code>".json_encode($lines)."</code>");
+    //echo("<code>".json_encode($lines)."</code>");
 ?>
+hello world
