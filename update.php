@@ -8,6 +8,9 @@ $gitcmd=array(
     "clone"=>"rm -rfv $cd;sudo git clone $url $cd 2>&1;"
 );
 $cmd = "{$ownme}{$gitcmd[$_GET["git"]]}";
-if(isset($_GET["git"])){echo(exec($cmd));}
-echo("<br>".posix_getpwuid(posix_geteuid())['name']);
+if(isset($_GET["git"])){
+    $line="";
+    echo(passthru($cmd,$line));
+    echo($line);
+    echo("<br>".posix_getpwuid(posix_geteuid())['name']);}
 ?>
