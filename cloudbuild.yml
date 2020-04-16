@@ -5,10 +5,3 @@ steps:
   dir: '/version-file'
 
 images: ['gcr.io/$PROJECT_ID/git']
-steps:
-# Clone a public repo and write its revision to a VERSION file.
-- name: 'gcr.io/$PROJECT_ID/git'
-  args: ['clone', 'https://github.com/BrandonWeigand/website.git']
-  dir: '/version-file'
-
-images: ['gcr.io/$PROJECT_ID/git']
