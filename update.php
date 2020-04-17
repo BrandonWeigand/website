@@ -12,7 +12,7 @@
     }
 
     $DIR=__DIR__;
-    $url=isset($_GET["url"])?$_GET["url"]:"https://github.com/BrandonWeigand/website.git";
+    $url=(isset($_GET["url"]))?$_GET["url"]:"https://github.com/BrandonWeigand/website.git";
     $branch = (isset($_GET["branch"]))?$_GET["url"]:"master";
     $cmd="cd {$DIR};";
     if(isset($_GET["git"])){
