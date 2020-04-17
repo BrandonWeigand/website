@@ -7,7 +7,7 @@
             $result = array();
             exec($command, $result);
             foreach ($result as $line) {
-                array_push($line);
+                array_push($r,$line);
             }
         return($r);
     }
