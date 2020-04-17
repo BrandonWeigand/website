@@ -3,14 +3,12 @@
     if(!isset($_GET["key"])){exit(json_encode(array("error"=>"key unset")));}
     if($_GET["key"]!="key"){exit(json_encode(array("error"=>"key unknown")));}
     function run($cmd){
-        $r = preg_split('/\s+/', trim(shell_exec($cmd)));
-
-        /*
-        $proc = popen($cmd, 'r');
-        while (!feof($proc)){
-            array_push($r,"[".date("i:s")."] ".fread($proc, 4096));
-        }
-        */
+        $r = array();
+            $result = array();
+            exec($command, $result);
+            foreach ($result as $line) {
+                array_push($line);
+            }
         return($r);
     }
 
