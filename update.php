@@ -21,7 +21,7 @@
     if(isset($_GET["git"])){
         switch($_GET["git"]){
             case"clone":{$cmd.="rm -rv {$DIR};git clone --progress --verbose --single-branch --branch {$branch} $url {$DIR};";}break;
-            case"pull":{$cmd.="git fetch --progress --verbose --all;git reset --progress --verbose --hard origin/{$branch};";}break;
+            case"pull":{$cmd.="git fetch --progress --verbose --all;git reset --hard origin/{$branch};";}break;
             default:{}break;
         }
     }
