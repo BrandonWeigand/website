@@ -1,27 +1,32 @@
-<?php 
-$cd = __DIR__;
-$url = "https://github.com/BrandonWeigand/website.git";
-$branch = "master";
-$ownme="cd $cd".'sudo chown -R $USER: ./;sudo chmod -R 777 ./;';
-$gitcmd=array(
-    "pull"=>"sudo git pull -v $url $branch 2>&1;",
-    "clone"=>"rm -rfv $cd;sudo git clone $url $cd 2>&1;"
-);
-$cmd = "{$ownme}{$gitcmd[$_GET["git"]]}";
-
-function run($cmd){
-    $r = array();
-    $proc = popen($cmd, 'r');
-    while (!feof($proc)){
-        array_push($r,"[".date("i:s")."] ".fread($proc, 4096));
+<?php
+    function run($cmd){
+        $r = array();
+        $proc = popen($cmd, 'r');
+        while (!feof($proc)){
+            array_push($r,"[".date("i:s")."] ".fread($proc, 4096));
+        }
+        return($r);
+        
     }
-    return($r);
-}
-
-if(isset($_GET["git"])){
-    $lines=array(posix_getpwuid(posix_geteuid())['name']));
-    array_merge($lines,run($cmd));
+    $DIR=__DIR__;
+    $url=($_GET["url"])$_GET["url"]?:"https://github.com/BrandonWeigand/website.git";
+    $branch = (isset($_GET["branch"]))?:"master";
+    $cmd="cd {$DIR};";
+    if(isset($_GET["git"])){
+        switch($_GET["git"]){
+            case"clone":{$cmd.="rm -r {$DIR}/*;git clone --single-branch --branch {$branch} $url {$DIR};";}break;
+            case"pull":{$cmd.="git fetch --all;git reset --hard origin/{$branch};";}break;
+            default{}break;
+        }
     }
-    //echo("<code>".json_encode($lines)."</code>");
+
+    $out = array(
+        "user"=>posix_getpwuid(posix_geteuid())['name']),
+        "dir"=>$DIR,
+        "url"=>$url,
+        "branch"=>$branch,
+        "cmd"=>$cmd,
+        "lines"=>run($cmd)
+    );
+    echo(json_encode($out);
 ?>
-hello world
