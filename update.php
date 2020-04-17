@@ -10,7 +10,7 @@
         }
         return($r);
     }
-    
+
     $DIR=__DIR__;
     $url=($_GET["url"])$_GET["url"]?:"https://github.com/BrandonWeigand/website.git";
     $branch = (isset($_GET["branch"]))?:"master";
@@ -31,5 +31,5 @@
         "cmd"=>$cmd,
         "lines"=>run($cmd)
     );
-    echo(json_encode($out);
+    echo(json_encode($out));
 ?>
