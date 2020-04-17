@@ -1,4 +1,7 @@
 <?php
+
+    if(!isset($_GET["key"])){exit(json_encode(array("error"=>"key unset")));}
+    if($_GET["key"]!=md5("public key")){exit(json_encode(array("error"=>"key unknown")));}
     function run($cmd){
         $r = array();
         $proc = popen($cmd, 'r');
@@ -6,8 +9,8 @@
             array_push($r,"[".date("i:s")."] ".fread($proc, 4096));
         }
         return($r);
-        
     }
+    
     $DIR=__DIR__;
     $url=($_GET["url"])$_GET["url"]?:"https://github.com/BrandonWeigand/website.git";
     $branch = (isset($_GET["branch"]))?:"master";
