@@ -3,7 +3,8 @@
     if(!isset($_GET["key"])){exit(json_encode(array("error"=>"key unset")));}
     if($_GET["key"]!="key"){exit(json_encode(array("error"=>"key unknown")));}
     function run($cmd){
-        $r = array(passthru($cmd));
+        $r = preg_split('/\s+/', trim(shell_exec($cmd)));
+
         /*
         $proc = popen($cmd, 'r');
         while (!feof($proc)){
