@@ -18,8 +18,8 @@
     $cmd="cd {$DIR};";
     if(isset($_GET["git"])){
         switch($_GET["git"]){
-            case"clone":{$cmd.="rm -rv {$DIR};git clone --progress --verbose --single-branch --branch {$branch} $url {$DIR};";}break;
-            case"pull":{$cmd.="git fetch --progress --verbose --all;git reset --hard origin/{$branch};";}break;
+            case"clone":{$cmd.="rm -rv {$DIR};git clone --progress --verbose --single-branch --branch {$branch} $url {$DIR};echo 'git clone complete';";}break;
+            case"pull":{$cmd.="git fetch --progress --verbose --all;git reset --hard origin/{$branch};echo 'git pull complete';";}break;
             default:{}break;
         }
     }
